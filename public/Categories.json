@@ -1,0 +1,26 @@
+[
+    {
+        "category_name": "books",
+        "img": "https://i.ibb.co/pWQWj5m/pexels-pixabay-159866.jpg",
+        "title": "Get full Book Set",
+        "detail": "You can get all the Books at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "notebooks",
+        "img": "https://i.ibb.co/31q6ZfC/pexels-tirachard-kumtanom-544115.jpg",
+        "title": "Get all kind of Notebooks here",
+        "detail": "You can buy many kind of Notebooks at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pens",
+        "img": "https://i.ibb.co/1djww3Z/pexels-janson-k-753695.jpg",
+        "title": "Get the best pens for your test",
+        "detail": "You can buy dozens, pairs or single pen at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pencils",
+        "img": "https://i.ibb.co/gdtzVqZ/pexels-naomi-bokhout-627901.jpg",
+        "title": "Get the best pencils for your test",
+        "detail": "You can buy dozens, pairs or single pencil at a cheap price. And we provide students friendly Services."
+    }
+]

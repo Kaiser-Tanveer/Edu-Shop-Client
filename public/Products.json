@@ -1,0 +1,134 @@
+[
+    {
+        "category_name": "books",
+        "img": "https://i.ibb.co/ZzzyzNq/guide-5.jpg",
+        "name": "Lecture Guide Class-5",
+        "price": "600",
+        "detail": "You can get all the Books at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "books",
+        "img": "https://i.ibb.co/YNb8jnH/guide-4.jpg",
+        "name": "Lecture Guide Class-4",
+        "price": "499",
+        "badge": "new",
+        "detail": "You can get all the Books at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "books",
+        "img": "https://i.ibb.co/xmMvFMN/economics-Test.jpg",
+        "name": "SSC Accounting Test paper",
+        "price": "375",
+        "detail": "You can get all the Books at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "books",
+        "img": "https://i.ibb.co/9cv9xPt/math-Sugession-10.png",
+        "name": "SSC Math Test paper",
+        "price": "437",
+        "detail": "You can get all the Books at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "notebooks",
+        "img": "https://i.ibb.co/1R6YHtM/nerd-Notebook.jpg",
+        "name": "Nerd Notebook",
+        "price": "150",
+        "detail": "You can get many kind of Notebooks at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "notebooks",
+        "img": "https://i.ibb.co/5WsbTXv/note-Everything.jpg",
+        "name": "Note Everything Notebook",
+        "price": "320",
+        "badge": "new",
+        "detail": "You can get many kind of Notebooks at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "notebooks",
+        "img": "https://i.ibb.co/GvqZNVx/natural.jpg",
+        "name": "Natural Notebook",
+        "price": "250",
+        "badge": "new",
+        "detail": "You can get many kind of Notebooks at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "notebooks",
+        "img": "https://i.ibb.co/n3d1MQw/workMap.jpg",
+        "name": "Word Map Notebook",
+        "price": "140",
+        "detail": "You can get many kind of Notebooks at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pens",
+        "img": "https://i.ibb.co/Nm5mKW5/sterling-Silver-Pen.webp",
+        "name": "Sterling Silver Pen",
+        "price": "520",
+        "badge": "new",
+        "detail": "You can get all kind of Pens at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pens",
+        "img": "https://i.ibb.co/9G7wL3P/cross-Classic.jpg",
+        "name": "Cross Classic Pen",
+        "price": "220",
+        "detail": "You can get all kind of Pens at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pens",
+        "img": "https://i.ibb.co/M7640sy/classic-Fountain.jpg",
+        "name": "Classic Fountain Pen",
+        "price": "350",
+        "badge": "new",
+        "detail": "You can get all kind of Pens at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pens",
+        "img": "https://i.ibb.co/kqcWc7n/perker.jpg",
+        "name": "Parker Pen",
+        "price": "250",
+        "detail": "You can get all kind of Pens at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pens",
+        "img": "https://i.ibb.co/YQ9rfdS/wooden.jpg",
+        "name": "Wooden Pen",
+        "price": "100",
+        "detail": "You can get all kind of Pens at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pencils",
+        "img": "https://i.ibb.co/HrgVr4M/Magnum-Ferfect-Pencil.png",
+        "name": "The Magnum Perfect Pencil",
+        "price": "160",
+        "detail": "You can get all kind of Pencils at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pencils",
+        "img": "https://i.ibb.co/7pvW28R/5-Aurora-Ottantotto-Demonstrator-Sketch-Pencil.png",
+        "name": "Aurora Demonstrator Sketch Pencil",
+        "price": "190",
+        "detail": "You can get all kind of Pencils at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pencils",
+        "img": "https://i.ibb.co/yXFjScV/Mechanical.png",
+        "name": "Mechanical Pencil",
+        "price": "120",
+        "badge": "new",
+        "detail": "You can get all kind of Pencils at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pencils",
+        "img": "https://i.ibb.co/rQ11nBg/hbPencil.webp",
+        "name": "HB Pencil",
+        "price": "48",
+        "detail": "You can get all kind of Pencils at a cheap price. And we provide students friendly Services."
+    },
+    {
+        "category_name": "pencils",
+        "img": "https://i.ibb.co/rc7YQND/2B.jpg",
+        "name": "2B Pencil",
+        "price": "60",
+        "detail": "You can get all kind of Pencils at a cheap price. And we provide students friendly Services."
+    }
+]

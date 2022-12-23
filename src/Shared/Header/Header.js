@@ -1,24 +1,25 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { HiOutlineLogout, HiMenu, HiOutlineHome, HiOutlineLogin, HiOutlineClipboardList, HiOutlineUserCircle } from 'react-icons/hi';
+import { Link, NavLink } from 'react-router-dom';
+import { HiOutlineLogout, HiMenu, HiOutlineHome, HiOutlineLogin, HiOutlineClipboardList, HiOutlineUserCircle, HiOutlineMenu, HiOutlineShoppingCart, HiOutlineDocumentText } from 'react-icons/hi';
 import logo from '../../Assets/Logos/eduShopLogo.png'
 import { AuthContext } from '../../Contexts/AuthContext/AuthProvider';
 
 const Header = () => {
     const { user } = useContext(AuthContext);
     const menuItems = <>
-        <Link to='/' className='flex items-center text-xl m-2 lg:text-base'><HiOutlineHome className='lg:hidden' /><span className='ml-2'>Home</span></Link>
-        <Link to='/allProducts' className='flex items-center text-xl m-2 lg:text-base'><HiOutlineHome className='lg:hidden' /><span className='ml-2'>All Products</span></Link>
-        <Link className="flex items-center text-xl m-2 lg:text-base"><HiOutlineClipboardList className='lg:hidden' /> <span className='ml-2'>Blog</span></Link>
+        <NavLink to='/' className='flex items-center text-xl m-2 mt-8 lg:text-base'><HiOutlineHome className='lg:hidden' /><span className='ml-2'>Home</span></NavLink>
+        <NavLink to='/products' className='flex items-center text-xl m-2 mt-8 lg:text-base'><HiOutlineShoppingCart className='lg:hidden' /><span className='ml-2'>All Products</span></NavLink>
+        <NavLink to='/dashboard' className='flex items-center text-xl m-2 mt-8 lg:text-base'><HiOutlineDocumentText className='lg:hidden' /><span className='ml-2'>Dashboard</span></NavLink>
+        <NavLink className="flex items-center text-xl m-2 mt-8 lg:text-base"><HiOutlineClipboardList className='lg:hidden' /> <span className='ml-2'>Blog</span></NavLink>
 
         {
-            !user ? <Link className="flex items-center text-xl m-2 lg:text-base text-primary"><HiOutlineLogin className='lg:hidden' /> <span className='ml-2'>Login</span></Link>
+            !user ? <NavLink className="flex items-center text-xl m-2 mt-8 lg:text-base text-primary"><HiOutlineLogin className='lg:hidden' /> <span className='ml-2'>Login</span></NavLink>
                 :
-                <Link className="flex items-center text-xl m-2 lg:text-base text-error"><HiOutlineLogout className='lg:hidden' /> <span className='ml-2'>Logout</span></Link>
+                <NavLink className="flex items-center text-xl m-2 mt-8 lg:text-base text-error"><HiOutlineLogout className='lg:hidden' /> <span className='ml-2'>Logout</span></NavLink>
         }
     </>
     return (
-        <div className="navbar bg-white">
+        <div className="navbar bg-cyan-200 p-0 pr-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -44,6 +45,8 @@ const Header = () => {
                     }
                     <span className='ml-2'>{user?.name}</span>
                 </Link>
+
+                <label htmlFor="dashboard-drawer" className="btn btn-ghost drawer-button lg:hidden"><HiOutlineMenu /></label>
             </div>
         </div>
     );

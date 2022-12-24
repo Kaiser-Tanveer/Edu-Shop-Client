@@ -13,13 +13,13 @@ const Header = () => {
         <NavLink className="flex items-center text-xl m-2 mt-8 lg:text-base"><HiOutlineClipboardList className='lg:hidden' /> <span className='ml-2'>Blog</span></NavLink>
 
         {
-            !user ? <NavLink className="flex items-center text-xl m-2 mt-8 lg:text-base text-primary"><HiOutlineLogin className='lg:hidden' /> <span className='ml-2'>Login</span></NavLink>
+            !user ? <NavLink to='/logIn' className="flex items-center text-xl m-2 mt-8 lg:text-base text-primary"><HiOutlineLogin className='lg:hidden' /> <span className='ml-2'>Login</span></NavLink>
                 :
                 <NavLink className="flex items-center text-xl m-2 mt-8 lg:text-base text-error"><HiOutlineLogout className='lg:hidden' /> <span className='ml-2'>Logout</span></NavLink>
         }
     </>
     return (
-        <div className="navbar bg-cyan-200 p-0 pr-5">
+        <div className="navbar bg-cyan-200 p-0 pr-5 shadow-lg">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { HiShoppingCart } from 'react-icons/hi'
+import { HiArrowCircleRight } from 'react-icons/hi'
 import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
@@ -8,7 +8,7 @@ const Product = ({ product }) => {
         <div className='relative rounded-lg bg-cyan-200 shadow-lg'>
             <img src={img} alt="productImg" className='h-60 p-4 w-44 absolute z-10 left-1/4 border border-cyan-200 shadow-lg' />
             <div className='w-full'>
-                <Link to={`/product/${_id}`} className='btn btn-secondary rounded-none w-full font-semibold absolute bottom-0 z-30 shadow-lg'>CHECKOUT<HiShoppingCart className='ml-2' /></Link>
+                <Link to={`/product/${_id}`} className='btn btn-secondary rounded-none w-full font-semibold text-xl absolute bottom-0 z-30 shadow-lg'>DETAILS<HiArrowCircleRight className='ml-2' /></Link>
             </div>
             <div className='rounded-lg bg-white my-0 py-0 shadow-lg' style={{
                 clipPath: 'polygon(0 calc(55% - 0%), 100% calc(100% - 75%), 100% 100%, 0 100%)'

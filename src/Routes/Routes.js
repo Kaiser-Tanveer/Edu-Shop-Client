@@ -6,6 +6,8 @@ import Products from "../Pages/Products/Products";
 import DashboardLayout from "../Shared/Layouts/DashboardLayout/DashboardLayout";
 import Main from "../Shared/Layouts/Main/Main";
 import MyProducts from "../Pages/Dashboard/MyProducts";
+import Register from "../Pages/Register/Register";
+import LogIn from "../Pages/Register/LogIn";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <Home />,
                 loader: () => fetch('https://edushop-server.vercel.app/categories')
+            },
+            {
+                path: '/register',
+                element: <Register />
+            },
+            {
+                path: '/logIn',
+                element: <LogIn />
             },
             {
                 path: '/products',

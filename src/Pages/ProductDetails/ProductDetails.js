@@ -20,7 +20,6 @@ const ProductDetails = () => {
         if (myAmount === 0) {
             setWarning("Please input a valid quantity")
         }
-        console.log(warning);
     }
     if (navigation.state === "loading") {
         return <Spinner />

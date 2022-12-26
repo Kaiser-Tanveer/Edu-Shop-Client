@@ -30,8 +30,8 @@ const LogIn = () => {
                     </div>
                     <h4 className='text-xl font-semibold mt-6'>Sign in with</h4>
                     <div className='-mb-16 flex justify-between'>
-                        <FaGoogle className='text-4xl bg-cyan-200 rounded-full shadow-xl shadow-secondary-focus hover:animate-spin hover:text-secondary-focus hover:shadow-secondary' />
-                        <FaFacebook className='text-4xl bg-cyan-200 rounded-full shadow-xl shadow-secondary-focus hover:animate-spin hover:bg-secondary-focus hover:shadow-secondary hover:text-cyan-200' />
+                        <FaGoogle className='text-5xl bg-cyan-200 rounded-full shadow-xl shadow-secondary-focus hover:animate-spin hover:text-secondary-focus hover:shadow-secondary' />
+                        <FaFacebook className='text-5xl bg-cyan-200 rounded-full shadow-xl shadow-secondary-focus hover:animate-spin hover:bg-secondary-focus hover:shadow-secondary hover:text-cyan-200' />
                     </div>
                 </form>
             </div>

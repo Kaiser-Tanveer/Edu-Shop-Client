@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const register = (email, password) => {
+    const userRegister = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
         user,
         loading,
         setLoading,
-        register,
+        userRegister,
         logIn,
     };
     return (

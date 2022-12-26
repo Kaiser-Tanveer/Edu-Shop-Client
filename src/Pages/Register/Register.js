@@ -3,33 +3,19 @@ import logo from '../../Assets/Logos/eduShopLogo.png';
 import { Link } from 'react-router-dom';
 import useTitle from '../../Component/CustomHooks/useTitle';
 import { AuthContext } from '../../Contexts/AuthContext/AuthProvider';
+import { useForm } from 'react-hook-form';
 
 const Register = () => {
-    const { register } = useContext(AuthContext);
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { userRegister } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const [disable, setDisable] = useState(false);
     useTitle('Sign Up');
-    const submitHandler = e => {
-        e.preventDefault();
-        const form = e.target;
-        const name = form.name.value
-        const email = form.email.value
-        const password = form.password.value
 
-        register(email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-            })
-            .then(err => console.error(err));
-        const data = [
-            {
-                name,
-                email,
-                password
-            }
-        ]
+    const submitHandler = data => {
         console.log(data);
     }
+
     const termsHandler = (e) => {
         const check = e.target.checked;
         setDisable(check);
@@ -42,15 +28,25 @@ const Register = () => {
                 <hr className=' border text-gray-800 border-secondary' />
             </div>
             <div className="bg-cyan-200 lg:w-3/4 mx-auto flex items-center justify-center text-center text-gray-800 rounded-lg shadow-lg shadow-secondary-focus">
-                <form onSubmit={submitHandler} className="flex flex-col w-full max-w-lg p-12 shadow-lg shadow-secondary text-gray-800 ng-untouched ng-pristine ng-valid rounded-lg">
+                <form onSubmit={handleSubmit(submitHandler)} className="flex flex-col w-full max-w-lg p-12 shadow-lg shadow-secondary text-gray-800 ng-untouched ng-pristine ng-valid rounded-lg">
                     <img src={logo} alt="" className='w-1/2 mx-auto bg-cyan-200 rounded-full -mt-24 border-t-2 border-b-0' />
-                    <label className="self-start text-xs font-semibold">YOur Name</label>
-                    <input name='name' type="text" className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 text-gray-900 focus:border-secondary focus:ring-secondary" required />
-                    <label className="self-start text-xs mt-2 font-semibold">YOur Email</label>
-                    <input name='email' type="text" className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 text-gray-900 focus:border-secondary focus:ring-secondary" required />
+                    <label className="self-start text-xs font-semibold">Your Name</label>
+                    <input
+                        {...register("name", { required: "Name is required." })}
+                        type="text" className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 text-gray-900 focus:border-secondary focus:ring-secondary" required />
+                    {errors.name && <p className='text-error'>{errors.name.message}</p>}
+                    <label className="self-start text-xs mt-2 font-semibold">Your Email</label>
+                    <input
+                        {...register("email", { required: "Email is required." })}
+                        type="text" className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 text-gray-900 focus:border-secondary focus:ring-secondary" required />
+                    {errors.email && <p className='text-error'>{errors.email.message}</p>}
                     <label className="self-start mt-3 text-xs font-semibold">Password</label>
-                    <input name='password' type="password" className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 text-gray-900 focus:border-emerald-600 focus:ring-secondary" required />
+                    <input
+                        {...register("password", { required: "Password is required.", pattern: { value: '/(?=.*[a-z])(?=.*[A-Z])/', message: 'Password must contain uppercase and lowercase' } })}
+                        type="password" className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 text-gray-900 focus:border-emerald-600 focus:ring-secondary" required />
+                    {errors.password && <p className='text-error'>{errors.password.message}</p>}
                     <div className='mt-6'>
+                        <p className='text-error'>{error}</p>
                         <div className='flex items-center py-2'>
                             <input onClick={termsHandler} type="checkbox" className='mr-2' />
                             <span className='text-gray-600 text-xs'>Accept <Link className='link-hover'>terms and conditions</Link></span>

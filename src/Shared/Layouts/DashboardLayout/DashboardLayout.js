@@ -15,7 +15,6 @@ const DashboardLayout = () => {
                     <li className='font-semibold'><Link to='/dashboard'><HiOutlineShoppingBag className='text-xl' /> My Products</Link></li>
                     <li className='font-semibold'><Link><HiOutlineGift className='text-xl' /> My WishList</Link></li>
                 </ul>
-
             </div>
         </div>
     );

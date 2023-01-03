@@ -8,12 +8,17 @@ import { useForm } from 'react-hook-form';
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { userRegister } = useContext(AuthContext);
-    const [error, setError] = useState('');
     const [disable, setDisable] = useState(false);
     useTitle('Sign Up');
 
     const submitHandler = data => {
         console.log(data);
+        userRegister(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .the(err => console.error(err))
     }
 
     const termsHandler = (e) => {
@@ -46,7 +51,6 @@ const Register = () => {
                         type="password" className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 text-gray-900 focus:border-emerald-600 focus:ring-secondary" required />
                     {errors.password && <p className='text-error'>{errors.password.message}</p>}
                     <div className='mt-6'>
-                        <p className='text-error'>{error}</p>
                         <div className='flex items-center py-2'>
                             <input onClick={termsHandler} type="checkbox" className='mr-2' />
                             <span className='text-gray-600 text-xs'>Accept <Link className='link-hover'>terms and conditions</Link></span>

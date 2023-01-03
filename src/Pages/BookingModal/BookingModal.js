@@ -1,16 +1,37 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Contexts/AuthContext/AuthProvider";
+
 const BookingModal = ({ goods, setQuantity, myAmount }) => {
+    const { user } = useContext(AuthContext);
     const { name: productName, img } = goods;
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
+        const phone = form.phone.value;
+        const location = form.location.value;
+        const message = form.msg.value;
 
-        const bookedProduct = [
-            {
-                productName,
-                myAmount,
-                img,
-            }
-        ]
+        const bookedProduct = {
+            mail: user.email,
+            message,
+            productName,
+            myAmount,
+            img,
+            phone,
+            location,
+        }
+
+        fetch('http://localhost:5000/myProducts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookedProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
         console.log(bookedProduct);
         setQuantity(0)
     }

@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthContext/AuthProvider";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const BookingModal = ({ goods, setQuantity, myAmount }) => {
+    const navigate = useNavigate();
     const { user } = useContext(AuthContext);
     const { name: productName, img } = goods;
     const handleSubmit = (e) => {
@@ -31,6 +33,9 @@ const BookingModal = ({ goods, setQuantity, myAmount }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                if (data.acknowledged === true) {
+                    navigate('/dashboard/myProducts');
+                }
             })
         console.log(bookedProduct);
         setQuantity(0)

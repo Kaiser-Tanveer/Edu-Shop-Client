@@ -49,7 +49,7 @@ const router = createBrowserRouter([
                     {
                         path: '/dashboard/myProducts',
                         element: <MyProducts />,
-                        loader: () => fetch('http://localhost:5000/dashboard/myProducts')
+                        loader: () => fetch('https://edushop-server.vercel.app/dashboard/myProducts')
                     },
                     {
                         path: '/dashboard/myProducts',

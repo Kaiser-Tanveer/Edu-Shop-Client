@@ -37,7 +37,6 @@ const BookingModal = ({ goods, setQuantity, myAmount }) => {
                     navigate('/dashboard/myProducts');
                 }
             })
-        console.log(bookedProduct);
         setQuantity(0)
     }
     return (

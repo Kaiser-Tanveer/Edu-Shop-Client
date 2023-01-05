@@ -13,7 +13,7 @@ const DashboardLayout = () => {
                 <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-60 lg:w-80 bg-white text-base-content">
                     <li className='font-semibold'><Link to='/dashboard'><HiOutlineShoppingBag className='text-xl' /> My Products</Link></li>
-                    <li className='font-semibold'><Link><HiOutlineGift className='text-xl' /> My WishList</Link></li>
+                    <li className='font-semibold'><Link to='/dashboard/wishlists'><HiOutlineGift className='text-xl' /> My WishList</Link></li>
                 </ul>
             </div>
         </div>

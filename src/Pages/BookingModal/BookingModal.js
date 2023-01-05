@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthContext/AuthProvider";
 import { Navigate, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const BookingModal = ({ goods, setQuantity, myAmount }) => {
     const navigate = useNavigate();
@@ -34,7 +35,8 @@ const BookingModal = ({ goods, setQuantity, myAmount }) => {
             .then(data => {
                 console.log(data);
                 if (data.acknowledged === true) {
-                    navigate('/dashboard/myProducts');
+                    toast.success('Product added Successfully!');
+                    navigate('/dashboard');
                 }
             })
         setQuantity(0)

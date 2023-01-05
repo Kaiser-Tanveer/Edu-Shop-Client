@@ -3,16 +3,16 @@ import { toast } from 'react-hot-toast';
 import { FaTrashAlt } from 'react-icons/fa';
 import { HiOutlineHeart } from 'react-icons/hi';
 import { Link, useNavigate, useNavigation } from 'react-router-dom';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../../Spinner/Spinner';
 
 const MyProductCart = ({ product }) => {
     const navigation = useNavigation();
     const navigate = useNavigate();
     const { mail, message, productName, location, myAmount, img, phone, _id } = product;
     const removeHandler = (id) => {
-        const proceed = window.confirm(`Are you sure to delete ${productName} from your cart?`);
+        const proceed = window.confirm(`Are you sure to delete this Item?`);
         if (proceed) {
-            fetch(`http://localhost:5000/dashboard/myProducts/${id}`, {
+            fetch(`https://edushop-server.vercel.app/dashboard/myProducts/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -22,12 +22,31 @@ const MyProductCart = ({ product }) => {
                         if (navigation.state === 'loading') {
                             return <Spinner />
                         }
-                        navigate('/dashboard/myProducts');
+                        navigate('/dashboard');
                     }
                     console.log(data);
                 })
         }
         console.log(productName);
+    }
+
+    const wishlistHandler = (list) => {
+        fetch(`http://localhost:5000/dashboard/wishlists`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(list)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged === true) {
+                    toast.success('Product Added to Wishlist Successfully!');
+                    navigate('/dashboard/wishlists');
+                }
+            })
+        console.log(list);
     }
     return (
         <div className='my-10'>
@@ -51,7 +70,7 @@ const MyProductCart = ({ product }) => {
                             <button onClick={() => removeHandler(_id)} className="btn btn-sm btn-outline btn-error rounded-md py-0">
                                 <FaTrashAlt /> Remove
                             </button>
-                            <button className="btn btn-sm btn-outline bg-cyan-200 rounded-md py-0">
+                            <button onClick={() => wishlistHandler(product)} className="btn btn-sm btn-outline bg-cyan-200 rounded-md py-0">
                                 <HiOutlineHeart />Add to favorites
                             </button>
                         </div>

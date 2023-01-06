@@ -24,7 +24,7 @@ const BookingModal = ({ goods, setQuantity, myAmount }) => {
             location,
         }
 
-        fetch('http://localhost:5000/myProducts', {
+        fetch('https://edushop-server.vercel.app/myProducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

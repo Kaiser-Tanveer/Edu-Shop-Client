@@ -12,7 +12,7 @@ const Wishlist = () => {
         return <Spinner />
     }
     return (
-        <div className='h-[100vh]'>
+        <div className='h-[100vh] w-full'>
             <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 bg-gray-50 text-gray-800 shadow-lg">
                 <h2 className="text-4xl text-center font-bold text-error">Wishlist</h2>
                 <ul className="flex flex-col divide-y divide-gray-300">

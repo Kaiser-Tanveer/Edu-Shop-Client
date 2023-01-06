@@ -10,6 +10,16 @@ const MyProductCart = ({ product }) => {
     const navigate = useNavigate();
     const { mail, message, productName, location, myAmount, img, phone, _id } = product;
 
+    const list = {
+        mail,
+        message,
+        productName,
+        location,
+        myAmount,
+        img,
+        phone
+    }
+
     const removeHandler = (id) => {
         const proceed = window.confirm(`Are you sure to delete this Item?`);
         if (proceed) {
@@ -28,11 +38,10 @@ const MyProductCart = ({ product }) => {
                     console.log(data);
                 })
         }
-        console.log(productName);
     }
 
     const wishlistHandler = (list) => {
-        fetch(`http://localhost:5000/dashboard/wishlists`, {
+        fetch(`https://edushop-server.vercel.app/dashboard/wishlists`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -47,7 +56,6 @@ const MyProductCart = ({ product }) => {
                     navigate('/dashboard/wishlists');
                 }
             })
-        console.log(list);
     }
     return (
         <div className='my-10'>
@@ -63,7 +71,7 @@ const MyProductCart = ({ product }) => {
                             </div>
                             <div className="text-right">
                                 <p className="text-lg font-semibold">{myAmount} ৳</p>
-                                <p className="text-sm line-through text-gray-400">15.99 ৳</p>
+                                <p className="text-sm line-through text-gray-400">15.99 $</p>
                                 <p className="text-sm font-serif text-gray-400">{location}</p>
                             </div>
                         </div>
@@ -71,7 +79,7 @@ const MyProductCart = ({ product }) => {
                             <button onClick={() => removeHandler(_id)} className="btn btn-sm btn-outline btn-error rounded-md py-0">
                                 <FaTrashAlt /> Remove
                             </button>
-                            <button onClick={() => wishlistHandler(product)} className="btn btn-sm btn-outline bg-cyan-200 rounded-md py-0">
+                            <button onClick={() => wishlistHandler(list)} className="btn btn-sm btn-outline bg-cyan-200 rounded-md py-0 px-0">
                                 <HiOutlineHeart />Add to favorites
                             </button>
                         </div>

@@ -5,7 +5,15 @@ import logo from '../../Assets/Logos/eduShopLogo.png'
 import { AuthContext } from '../../Contexts/AuthContext/AuthProvider';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const logOutHandler = () => {
+        logOut()
+            .then(() => { })
+            .catch(err => {
+                console.log(err);
+            })
+    }
     const menuItems = <>
         <NavLink to='/' className='flex items-center text-xl m-2 mt-8 lg:text-base'><HiOutlineHome className='lg:hidden' /><span className='ml-2'>Home</span></NavLink>
         <NavLink to='/products' className='flex items-center text-xl m-2 mt-8 lg:text-base'><HiOutlineShoppingCart className='lg:hidden' /><span className='ml-2'>All Products</span></NavLink>
@@ -15,7 +23,7 @@ const Header = () => {
         {
             !user ? <NavLink to='/logIn' className="flex items-center text-xl m-2 mt-8 lg:text-base text-primary"><HiOutlineLogin className='lg:hidden' /> <span className='ml-2'>Login</span></NavLink>
                 :
-                <NavLink className="flex items-center text-xl m-2 mt-8 lg:text-base text-error"><HiOutlineLogout className='lg:hidden' /> <span className='ml-2'>Logout</span></NavLink>
+                <NavLink onClick={logOutHandler} className="flex items-center text-xl m-2 mt-8 lg:text-base text-error"><HiOutlineLogout className='lg:hidden' /> <span className='ml-2'>Logout</span></NavLink>
         }
     </>
     return (

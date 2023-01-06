@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaFacebook, FaGoogle, FaUserCircle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthContext/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const LogIn = () => {
+    const navigate = useNavigate();
+    const { logIn } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
+
     const submitHandler = data => {
         console.log(data);
+        logIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success('Logged in successfully!')
+                navigate('/')
+            })
+            .catch(err => console.error(err))
     }
     return (
         <div className='lg:w-5/6 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center'>

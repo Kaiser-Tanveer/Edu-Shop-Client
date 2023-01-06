@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import logo from '../../Assets/Logos/eduShopLogo.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useTitle from '../../Component/CustomHooks/useTitle';
 import { AuthContext } from '../../Contexts/AuthContext/AuthProvider';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
+    const navigate = useNavigate();
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { userRegister } = useContext(AuthContext);
     const [disable, setDisable] = useState(false);
@@ -17,8 +19,10 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success('Registration Successful!')
+                navigate('/')
             })
-            .the(err => console.error(err))
+            .catch(err => console.error(err))
     }
 
     const termsHandler = (e) => {

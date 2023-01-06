@@ -15,11 +15,10 @@ const AuthProvider = ({ children }) => {
     }
 
     const logIn = (email, password) => {
-        return signInWithEmailAndPassword(email, password);
+        return signInWithEmailAndPassword(auth, email, password);
     };
 
     const logOut = () => {
-        setLoading(true);
         return signOut(auth);
     };
 

@@ -4,6 +4,7 @@ import Banner from './Banner/Banner';
 import HomeProducts from './HomeProducts/HomeProducts';
 import useTitle from '../../Component/CustomHooks/useTitle';
 import { Zoom } from 'react-reveal';
+import WhatWeHave from './WhatWeHave/WhatWeHave';
 
 const Home = () => {
     useTitle('Home');
@@ -15,6 +16,7 @@ const Home = () => {
             <Banner />
             <AllProducts />
             <HomeProducts />
+            <WhatWeHave />
         </div>
     );
 };

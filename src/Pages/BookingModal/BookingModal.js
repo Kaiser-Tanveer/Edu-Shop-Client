@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthContext/AuthProvider";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { FaExclamationTriangle } from "react-icons/fa";
 
 const BookingModal = ({ goods, setQuantity, myAmount }) => {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ const BookingModal = ({ goods, setQuantity, myAmount }) => {
         const message = form.msg.value;
 
         const bookedProduct = {
-            mail: user.email,
+            mail: user?.email,
             message,
             productName,
             myAmount,
@@ -72,8 +73,16 @@ const BookingModal = ({ goods, setQuantity, myAmount }) => {
                                 </label>
                                 <textarea type="text" name='msg' placeholder="Product Looks Good" className="input input-bordered w-full rounded-md" />
                             </div>
-                            <div className="modal-action">
-                                <input htmlFor="cart-modal" type="submit" value='Add to Cart' className="btn btn-secondary rounded-md w-full" />
+                            <div className="modal-action mt-14">
+                                {
+                                    user ?
+                                        <input htmlFor="cart-modal" type="submit" value='Add to Cart' className="btn btn-secondary rounded-md w-full" />
+                                        :
+                                        <>
+                                            <input htmlFor="cart-modal" type="submit" value='Add to Cart' className="btn btn-disabled rounded-md w-full" disabled />
+                                            <p className="absolute flex items-center -mt-12 text-xl font-semibold p-2 border-2 rounded-md border-error"><FaExclamationTriangle className="text-yellow-500 mr-2" /> Please, <Link to='/logIn' className="mx-2 link link-hover link-primary">Login</Link> to Add Product</p>
+                                        </>
+                                }
                             </div>
                         </div>
                     </form>

@@ -27,7 +27,7 @@ const ProductDetails = () => {
     return (
         <section className="hero min-h-screen lg:w-5/6 mx-auto">
             <div className="hero-content flex-col lg:flex-row lg:gap-20 mx-2">
-                <img src={img} alt='productImg' className="h-[70vh] rounded-lg shadow-2xl" />
+                <img src={img} alt='productImg' className="h-[70vh] lg:max-w-lg rounded-lg shadow-2xl" />
                 <div className='relative lg:w-1/2 p-5 lg:p-10 mx-auto rounded-lg bg-cyan-200 shadow-lg'>
                     {
                         badge &&

@@ -7,7 +7,7 @@ import { toast } from 'react-hot-toast';
 
 const LogIn = () => {
     const navigate = useNavigate();
-    const { logIn, GLogIn } = useContext(AuthContext);
+    const { logIn, GLogIn, FLogIn } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const submitHandler = data => {
@@ -27,10 +27,21 @@ const LogIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast.success('Logged in with Google successfully!')
-                navigate('/')
+                toast.success('Logged in with Google successfully!');
+                navigate('/');
             })
-            .catch(err => console.log(err))
+            .catch(err => console.error(err))
+    }
+
+    const FLogInHandler = () => {
+        FLogIn()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success('Logged in with Facebook successfully!');
+                navigate('/');
+            })
+            .catch(err => console.error(err))
     }
     return (
         <div className='lg:w-5/6 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center'>
@@ -60,7 +71,7 @@ const LogIn = () => {
                     <h4 className='text-xl font-semibold mt-6'>Sign in with</h4>
                     <div className='-mb-16 flex justify-between'>
                         <FaGoogle onClick={GLogInHandler} className='text-5xl bg-cyan-200 rounded-full shadow-xl shadow-secondary-focus hover:animate-spin hover:text-secondary-focus hover:shadow-secondary' />
-                        <FaFacebook className='text-5xl bg-cyan-200 rounded-full shadow-xl shadow-secondary-focus hover:animate-spin hover:bg-secondary-focus hover:shadow-secondary hover:text-cyan-200' />
+                        <FaFacebook onClick={FLogInHandler} className='text-5xl bg-cyan-200 rounded-full shadow-xl shadow-secondary-focus hover:animate-spin hover:bg-secondary-focus hover:shadow-secondary hover:text-cyan-200' />
                     </div>
                 </form>
             </div>

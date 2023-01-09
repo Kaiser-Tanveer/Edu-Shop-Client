@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { HiOutlineLogout, HiMenu, HiOutlineHome, HiOutlineLogin, HiOutlineClipboardList, HiOutlineUserCircle, HiOutlineMenu, HiOutlineShoppingCart, HiOutlineDocumentText } from 'react-icons/hi';
+import { HiOutlineLogout, HiMenu, HiOutlineHome, HiOutlineLogin, HiOutlineClipboardList, HiOutlineUserCircle, HiOutlineShoppingCart, HiOutlineDocumentText } from 'react-icons/hi';
 import logo from '../../Assets/Logos/eduShopLogo.png'
 import { AuthContext } from '../../Contexts/AuthContext/AuthProvider';
 
@@ -39,22 +39,20 @@ const Header = () => {
                 </div>
                 <Link className="text-xl"><img src={logo} alt="" /></Link>
             </div>
-            <div className="hidden lg:flex">
+            <div className="hidden lg:flex items-center pb-5">
                 <ul className="menu text-base-content menu-horizontal">
                     {menuItems}
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className='flex items-center'>
-                    {
-                        user?.photoURL ? <img src={user.photoURL} alt="" />
-                            :
-                            <HiOutlineUserCircle className='text-2xl' />
-                    }
-                    <span className='ml-2'>{user?.name}</span>
-                </Link>
-
-                <label htmlFor="dashboard-drawer" className="btn btn-ghost drawer-button lg:hidden"><HiOutlineMenu /></label>
+                {
+                    user?.photoURL ?
+                        <Link className='flex items-center'>
+                            <img src={user.photoURL} alt="" className='w-10 rounded-full' />
+                        </Link>
+                        :
+                        <HiOutlineUserCircle className='text-2xl' />
+                }
             </div>
         </div>
     );

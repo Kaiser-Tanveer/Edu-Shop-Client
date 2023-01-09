@@ -5,7 +5,7 @@ import { HiOutlineHeart } from 'react-icons/hi';
 import { Link, useNavigate, useNavigation } from 'react-router-dom';
 import Spinner from '../../Spinner/Spinner';
 
-const MyProductCart = ({ product }) => {
+const MyOrderCart = ({ product }) => {
     const navigation = useNavigation();
     const navigate = useNavigate();
     const { mail, message, productName, location, myAmount, img, phone, _id } = product;
@@ -98,4 +98,4 @@ const MyProductCart = ({ product }) => {
     );
 };
 
-export default MyProductCart;
+export default MyOrderCart;

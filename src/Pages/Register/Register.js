@@ -5,6 +5,7 @@ import useTitle from '../../Component/CustomHooks/useTitle';
 import { AuthContext } from '../../Contexts/AuthContext/AuthProvider';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+import { Zoom } from 'react-reveal';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -30,12 +31,14 @@ const Register = () => {
         setDisable(check);
     }
     return (
-        <div className='lg:w-5/6 lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center'>
-            <div className='w-3/4 mx-auto py-20'>
-                <h2 className="text-5xl text-secondary text-center font-bold">Register</h2>
-                <p className='py-6 text-center text-xl text-gray-600'>to get amazing features from EduShop. We are the only one online marketplace working for the students goods.</p>
-                <hr className=' border text-gray-800 border-secondary' />
-            </div>
+        <div className='lg:w-5/6 my-20 lg:my-32 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center'>
+            <Zoom>
+                <div className='w-3/4 mx-auto py-20'>
+                    <h2 className="text-5xl text-secondary text-center font-bold">Register</h2>
+                    <p className='py-6 text-center text-xl text-gray-600'>to get amazing features from EduShop. We are the only one online marketplace working for the students goods.</p>
+                    <hr className=' border text-gray-800 border-secondary' />
+                </div>
+            </Zoom>
             <div className="bg-cyan-200 lg:w-3/4 mx-auto flex items-center justify-center text-center text-gray-800 rounded-lg shadow-lg shadow-secondary-focus">
                 <form onSubmit={handleSubmit(submitHandler)} className="flex flex-col w-full max-w-lg p-12 shadow-lg shadow-secondary text-gray-800 ng-untouched ng-pristine ng-valid rounded-lg">
                     <img src={logo} alt="" className='w-1/2 mx-auto bg-cyan-200 rounded-full -mt-24 border-t-2 border-b-0' />

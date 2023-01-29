@@ -76,20 +76,21 @@ const MyOrderCart = ({ product }) => {
                             </div>
                         </div>
                         <div className="flex text-sm justify-between gap-4 divide-x">
-                            <button onClick={() => removeHandler(_id)} className="btn btn-sm btn-outline btn-error rounded-md py-0">
+                            <button onClick={() => removeHandler(_id)} className="btn btn-sm btn-outline btn-error rounded-md py-0 shadow-lg">
                                 <FaTrashAlt /> Remove
                             </button>
-                            <button onClick={() => wishlistHandler(list)} className="btn btn-sm btn-outline bg-cyan-200 rounded-md py-0 px-0">
-                                <HiOutlineHeart />Add to favorites
+                            <button onClick={() => wishlistHandler(list)} className="btn btn-sm btn-outline btn-primary border-0 px-6 rounded-md py-0 shadow-lg">
+                                <HiOutlineHeart className='text-xl' />
                             </button>
                         </div>
                     </div>
                 </div>
             </li>
             <div className="flex justify-end space-x-4">
-                <button type="button" className="px-6 py-2 border rounded-md border-emerald-600">Back
-                    <Link to='/products'>to shop</Link>
-                </button>
+                <Link to='/products'>
+                    <button type="button" className="px-6 py-2 border rounded-md border-emerald-600">Back to shop
+                    </button>
+                </Link>
                 <button type="button" className="px-6 py-2 border rounded-md bg-emerald-600 text-gray-50 border-emerald-600">
                     <span className="sr-only sm:not-sr-only">Continue to</span>Checkout
                 </button>

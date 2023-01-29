@@ -3,7 +3,7 @@ import logo from '../../Assets/Logos/eduShopLogo.png';
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center p-10 bg-base-300 text-primary-content mt-32">
+        <footer className="footer footer-center p-10 bg-base-300 text-primary-content">
             <div>
                 <img src={logo} alt="siteLogo" />
                 <p className="font-bold">

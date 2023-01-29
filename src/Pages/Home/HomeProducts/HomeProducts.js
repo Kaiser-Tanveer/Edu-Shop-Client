@@ -15,8 +15,8 @@ const HomeProducts = () => {
     }
     return (
         <div className='w-5/6 mx-auto'>
-            <h2 className='text-3xl md:text-5xl font-bold pt-10 pb-6'>Choice Your Product</h2>
-            <div className='mb-32 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            <h2 className='text-3xl md:text-4xl text-center font-bold pt-10 pb-6'>Choice Your Product</h2>
+            <div className='mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 group'>
                 {
                     products.map(product => <HomeProduct
                         key={product._id}

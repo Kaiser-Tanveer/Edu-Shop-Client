@@ -10,6 +10,7 @@ import LogIn from "../Pages/Register/LogIn";
 import Wishlist from "../Pages/Dashboard/Wishlists/Wishlist";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import NotFound from "../Pages/NotFound/NotFound";
+import MyProducts from "../Pages/Dashboard/SellerRoute/MyProducts/MyProducts";
 
 const router = createBrowserRouter([
     {
@@ -61,6 +62,11 @@ const router = createBrowserRouter([
                         path: '/dashboard/wishlists',
                         element: <Wishlist />,
                         loader: () => fetch(`https://edushop-server.vercel.app/dashboard/wishlists`)
+                    },
+                    {
+                        path: '/dashboard/myProducts',
+                        element: <MyProducts />,
+                        loader: () => fetch(`https://edushop-server.vercel.app/products`)
                     },
                 ]
             },

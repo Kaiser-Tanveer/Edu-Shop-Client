@@ -5,6 +5,8 @@ import HomeProducts from './HomeProducts/HomeProducts';
 import useTitle from '../../Component/CustomHooks/useTitle';
 import { Zoom } from 'react-reveal';
 import WhatWeHave from './WhatWeHave/WhatWeHave';
+import PhotoGallery from '../PhotoGallery/PhotoGallery';
+import MeetTeam from './MeetTeam/MeetTeam';
 
 const Home = () => {
     useTitle('Home');
@@ -17,6 +19,8 @@ const Home = () => {
             <AllProducts />
             <HomeProducts />
             <WhatWeHave />
+            <PhotoGallery />
+            <MeetTeam />
         </div>
     );
 };

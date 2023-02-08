@@ -57,9 +57,8 @@ const WishCard = ({ list }) => {
                         <button type="button" className="p-2 border rounded-md border-emerald-600">Back to shop
                         </button>
                     </Link>
-                    <button type="button" className="p-2 border rounded-md bg-emerald-600 text-gray-50 border-emerald-600">
-                        <span className="sr-only sm:not-sr-only">Continue to</span>Checkout
-                    </button>
+                    <Link to="/dashboard/checkout" type="button" className="p-2 border rounded-md bg-emerald-600 text-gray-50 border-emerald-600">Checkout
+                    </Link>
                 </div>
             </div>
         </Zoom>

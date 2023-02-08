@@ -19,7 +19,7 @@ const MyOrderCart = ({ product }) => {
         img,
         phone
     }
-
+    console.log(list);
     const removeHandler = (id) => {
         const proceed = window.confirm(`Are you sure to delete this Item?`);
         if (proceed) {
@@ -57,6 +57,24 @@ const MyOrderCart = ({ product }) => {
                 }
             })
     }
+    const checkoutHandler = (list) => {
+        console.log(list);
+        fetch('http://localhost:5000/dashboard/checkout', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(list)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged === true) {
+                    navigate('/dashboard/checkout');
+                }
+            })
+    }
+
     return (
         <div className='my-10'>
             <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
@@ -88,12 +106,13 @@ const MyOrderCart = ({ product }) => {
             </li>
             <div className="flex justify-end space-x-4">
                 <Link to='/products'>
-                    <button type="button" className="px-6 py-2 border rounded-md border-emerald-600">Back to shop
+                    <button type="button" className="px-6 py-2 border rounded-md border-emerald-600 hover:bg-emerald-600 hover:text-gray-100 hover:scale-110 duration-500">
+                        Back to shop
                     </button>
                 </Link>
-                <button type="button" className="px-6 py-2 border rounded-md bg-emerald-600 text-gray-50 border-emerald-600">
-                    <span className="sr-only sm:not-sr-only">Continue to</span>Checkout
-                </button>
+                <Link onClick={() => checkoutHandler(list)} type="button" className="px-6 py-2 border rounded-md bg-emerald-600 text-gray-50 border-emerald-600 shadow-lg hover:scale-110 duration-500">
+                    Checkout
+                </Link>
             </div>
         </div>
     );

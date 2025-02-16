@@ -7,7 +7,7 @@ const Footer = () => {
             <div>
                 <img src={logo} alt="siteLogo" />
                 <p className="font-bold">
-                    Edu-Shop Company <br />Providing reliable tech since 1992
+                    Edu-Shop Company <br />Providing reliable tech since 2022
                 </p>
                 <p>Copyright © 2022 - All right reserved</p>
             </div>

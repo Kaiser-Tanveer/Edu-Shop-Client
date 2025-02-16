@@ -15,17 +15,59 @@ const Header = () => {
             })
     }
     const menuItems = <>
-        <NavLink to='/' className='flex items-center text-xl m-2 mt-8 lg:text-base'><HiOutlineHome className='lg:hidden' /><span className='ml-2'>Home</span></NavLink>
-        <NavLink to='/products' className='flex items-center text-xl m-2 mt-8 lg:text-base'><HiOutlineShoppingCart className='lg:hidden' /><span className='ml-2'>All Products</span></NavLink>
-        <NavLink to='/dashboard' className='flex items-center text-xl m-2 mt-8 lg:text-base'><HiOutlineDocumentText className='lg:hidden' /><span className='ml-2'>Dashboard</span></NavLink>
-        <NavLink className="flex items-center text-xl m-2 mt-8 lg:text-base"><HiOutlineClipboardList className='lg:hidden' /> <span className='ml-2'>Blog</span></NavLink>
+    <NavLink 
+        to='/' 
+        className={({ isActive }) => `flex items-center text-xl m-2 mt-8 lg:text-base ${isActive ? 'text-[#ee9fbc] font-bold' : ''}`}
+    >
+        <HiOutlineHome className='lg:hidden' />
+        <span className='ml-2'>Home</span>
+    </NavLink>
+    
+    <NavLink 
+        to='/products' 
+        className={({ isActive }) => `flex items-center text-xl m-2 mt-8 lg:text-base ${isActive ? 'text-[#ee9fbc] font-bold' : ''}`}
+    >
+        <HiOutlineShoppingCart className='lg:hidden' />
+        <span className='ml-2'>All Products</span>
+    </NavLink>
 
-        {
-            !user ? <NavLink to='/logIn' className="flex items-center text-xl m-2 mt-8 lg:text-base text-primary"><HiOutlineLogin className='lg:hidden' /> <span className='ml-2'>Login</span></NavLink>
-                :
-                <NavLink onClick={logOutHandler} className="flex items-center text-xl m-2 mt-8 lg:text-base text-error"><HiOutlineLogout className='lg:hidden' /> <span className='ml-2'>Logout</span></NavLink>
-        }
-    </>
+    <NavLink 
+        to='/dashboard' 
+        className={({ isActive }) => `flex items-center text-xl m-2 mt-8 lg:text-base ${isActive ? 'text-[#ee9fbc] font-bold' : ''}`}
+    >
+        <HiOutlineDocumentText className='lg:hidden' />
+        <span className='ml-2'>Dashboard</span>
+    </NavLink>
+
+    <NavLink 
+        to='/blog' 
+        className={({ isActive }) => `flex items-center text-xl m-2 mt-8 lg:text-base ${isActive ? 'text-[#ee9fbc] font-bold' : ''}`}
+    >
+        <HiOutlineClipboardList className='lg:hidden' />
+        <span className='ml-2'>Blog</span>
+    </NavLink>
+
+    {
+        !user ? (
+            <NavLink 
+                to='/logIn' 
+                className={({ isActive }) => `flex items-center text-xl m-2 mt-8 lg:text-base text-blue-500 ${isActive ? 'font-bold' : ''}`}
+            >
+                <HiOutlineLogin className='lg:hidden' /> 
+                <span className='ml-2'>Login</span>
+            </NavLink>
+        ) : (
+            <NavLink 
+                onClick={logOutHandler} 
+                className="flex items-center text-xl m-2 mt-8 lg:text-base text-red-500"
+            >
+                <HiOutlineLogout className='lg:hidden' /> 
+                <span className='ml-2'>Logout</span>
+            </NavLink>
+        )
+    }
+</>;
+
     return (
         <div className="navbar bg-cyan-200 p-0 pr-5 shadow-lg">
             <div className="navbar-start">

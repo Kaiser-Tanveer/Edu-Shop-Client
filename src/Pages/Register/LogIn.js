@@ -1,22 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaFacebook, FaGoogle, FaUserCircle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthContext/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { Zoom } from 'react-reveal';
+import { ColorRing } from 'react-loader-spinner';
 
 const LogIn = () => {
     const navigate = useNavigate();
     const { logIn, GLogIn, FLogIn } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [loading, setLoading] = useState(false);
 
     const submitHandler = data => {
-        console.log(data);
+        setLoading(true);
         logIn(data.email, data.password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                setLoading(false);
                 toast.success('Logged in successfully!')
                 navigate('/')
             })
@@ -67,9 +68,21 @@ const LogIn = () => {
                         {...register("password", { required: "Password is required.", pattern: { value: '/(?=.*[a-z])(?=.*[A-Z])/', message: 'Password must contain uppercase and lowercase' } })}
                         type="password" className="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 text-gray-900 focus:border-emerald-600 focus:ring-secondary" required />
                     {errors.password && <p className='text-error'>{errors.password.message}</p>}
-                    <button type="submit" className="flex w-full mt-6 items-center justify-center h-12 px-6 text-sm font-semibold rounded bg-secondary text-gray-800">Login</button>
+                    <button type="submit" className="flex w-full mt-6 items-center justify-center h-12 px-6 text-sm font-semibold rounded bg-secondary text-gray-800">{
+                        loading ?
+                        <ColorRing
+                            visible={true}
+                            height="45"
+                            width="45"
+                            ariaLabel="color-ring-loading"
+                            wrapperStyle={{}}
+                            wrapperClass="color-ring-wrapper"
+                            colors={['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff']}/>
+                        :
+                        "Login"
+                        }</button>
                     <div className="flex justify-center mt-6 space-x-2 text-xs">
-                        <p className="text-gray-600">New in EduShop? Please <Link to='/register'>Register</Link></p>
+                        <p className="text-gray-600">New in EduShop? <Link to='/register' className='link-hover link-error'>Register</Link></p>
                     </div>
                     <h4 className='text-xl font-semibold mt-6'>Sign in with</h4>
                     <div className='-mb-16 flex justify-between'>

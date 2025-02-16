@@ -6,20 +6,21 @@ import { AuthContext } from '../../Contexts/AuthContext/AuthProvider';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Zoom } from 'react-reveal';
+import { ColorRing } from 'react-loader-spinner';
 
 const Register = () => {
     const navigate = useNavigate();
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { userRegister } = useContext(AuthContext);
     const [disable, setDisable] = useState(false);
+    const [loading, setLoading] = useState(false);
     useTitle('Sign Up');
 
     const submitHandler = data => {
-        console.log(data);
+        setLoading(true);
         userRegister(data.email, data.password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                setLoading(false);
                 toast.success('Registration Successful!')
                 navigate('/')
             })
@@ -67,7 +68,19 @@ const Register = () => {
                                 "flex w-full items-center justify-center h-12 px-6 text-sm font-semibold rounded text-gray-800 btn-disabled"
                                 :
                                 "flex w-full items-center justify-center h-12 px-6 text-sm font-semibold rounded bg-secondary text-gray-800"
-                        } >Register</button>
+                        } >{
+                            loading ?
+                            <ColorRing
+                                visible={true}
+                                height="45"
+                                width="45"
+                                ariaLabel="color-ring-loading"
+                                wrapperStyle={{}}
+                                wrapperClass="color-ring-wrapper"
+                                colors={['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff']}/>
+                            :
+                            "Login"
+                        }</button>
                     </div>
                     <div className="flex justify-center mt-6 space-x-2 text-xs">
                         <p className="text-gray-600">Already have an account? Please <Link className='link-hover' to='/logIn'>Login</Link></p>

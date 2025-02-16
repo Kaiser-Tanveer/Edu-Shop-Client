@@ -26,7 +26,7 @@ const MeetTeam = () => {
                 <div className="flex flex-row flex-wrap-reverse justify-center mt-8 group">
                     {
                         aboutData.map(data =>
-                            <div className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-cyan-200 text-gray-100 shadow-lg shadow-gray-400 group-hover:cursor-pointer group-hover:blur-sm group-hover:scale-90 hover:!blur-none hover:!scale-100">
+                            <div className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-cyan-200 text-gray-100 shadow-lg shadow-gray-400 group-hover:cursor-pointer group-hover:scale-90 hover:!scale-100 ease-linear duration-500">
                                 {
                                     data.img ?
                                         <img src={data.img} alt='' className="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full border border-cyan-200 hover:shadow-lg shadow-gray-500-focus hover:scale-125 duration-500 ease-in-out" />

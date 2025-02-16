@@ -14,7 +14,7 @@ const AllProducts = () => {
     }
     return (
         <>
-            <h2 className='ml-[8.3%] w-5/6 mx-auto text-3xl text-center md:text-4xl font-bold pb-6'>Pick your category</h2>
+            <h2 className='ml-[8.3%] w-5/6 mx-auto text-3xl text-center md:text-4xl font-bold pb-6'>Pick A Category</h2>
             <div className='grid grid-cols-4 gap-5 bg-gray-300 shadow-2xl'>
                 {
                     categories.map(category => <ProductMenu
